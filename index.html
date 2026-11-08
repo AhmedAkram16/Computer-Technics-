@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070b19" />
+    <title>Ahmed Akram | ByteBridge</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="ByteBridge home">
+          <span class="brand-mark"><i></i><i></i><i></i></span>
+          <span>Byte<span>Bridge</span></span>
+        </a>
+        <nav aria-label="Primary navigation">
+          <button class="nav-link active" data-route="home">Dashboard</button>
+          <button class="nav-link" data-route="practice">Practice</button>
+          <button class="nav-link" data-route="code">Code Lab</button>
+          <button class="nav-link exam-nav" data-route="exam">Final Exam</button>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" title="Switch theme"><span class="theme-sun">☼</span><span class="theme-knob">☾</span></button>
+        <div class="profile"><span class="pulse"></span><span>Ahmed Akram's prep</span></div>
+      </header>
+
+      <section id="home" class="view active">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">AHMED AKRAM PRESENTS • COMPUTER TECHNIQUES</p>
+            <h1>Study sharp.<br><em>Answer smarter.</em></h1>
+            <p class="lede">A focused practice space for number systems, computer fundamentals, algorithms, and C++.</p>
+            <div class="hero-actions">
+              <button class="button button-primary" data-route="practice">Start a mixed quiz <span>→</span></button>
+              <button class="button button-quiet" data-route="code">Open Code Lab</button>
+              <button class="button button-exam" data-route="exam">60-min final exam <span>↗</span></button>
+            </div>
+          </div>
+          <aside class="readiness-card" aria-label="Study readiness">
+            <div class="card-glow"></div>
+            <div class="readiness-top"><span>YOUR READINESS</span><strong id="readiness-score">0%</strong></div>
+            <div class="meter"><span id="readiness-meter"></span></div>
+            <p id="readiness-note">Answer questions to build your score.</p>
+            <div class="signal-row"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </aside>
+        </div>
+
+        <section class="topic-section">
+          <div class="section-heading"><div><p class="eyebrow">CHOOSE YOUR BATTLEGROUND</p><h2>Four topics. Twenty questions each.</h2></div><span class="topic-count">4 × 20 QUESTIONS</span></div>
+          <div class="topic-grid">
+            <button class="topic-card cyan" data-topic="fundamentals" data-route="practice">
+              <span class="topic-index">01</span><span class="topic-icon">⌘</span>
+              <span class="topic-name">Computer<br>Fundamentals</span><span class="topic-meta">Hardware · Memory · Buses <b>→</b></span>
+            </button>
+            <button class="topic-card violet" data-topic="numbers" data-route="practice">
+              <span class="topic-index">02</span><span class="topic-icon">₁₀</span>
+              <span class="topic-name">Number<br>Systems</span><span class="topic-meta">Binary · Hex · Complements <b>→</b></span>
+            </button>
+            <button class="topic-card orange" data-topic="algorithms" data-route="practice">
+              <span class="topic-index">03</span><span class="topic-icon">◇</span>
+              <span class="topic-name">Algorithms &<br>Flowcharts</span><span class="topic-meta">Logic · Pseudocode · Flow <b>→</b></span>
+            </button>
+            <button class="topic-card lime" data-topic="cpp" data-route="practice">
+              <span class="topic-index">04</span><span class="topic-icon">C++</span>
+              <span class="topic-name">C++<br>Programming</span><span class="topic-meta">Errors · Conditions · Switch <b>→</b></span>
+            </button>
+          </div>
+        </section>
+
+        <section class="study-strip">
+          <div class="strip-title"><span class="mini-orbit">✦</span><div><p class="eyebrow">QUICK RECALL</p><strong>Ready for a 60-second warm-up?</strong></div></div>
+          <div class="quick-question"><span>In 8-bit two's complement, which bit indicates a negative number?</span><button id="quick-reveal">Reveal</button><strong id="quick-answer" hidden>The most-significant bit (MSB).</strong></div>
+        </section>
+      </section>
+
+      <section id="practice" class="view">
+        <div class="practice-header">
+          <button class="back-button" data-route="home">← Dashboard</button>
+          <p class="eyebrow" id="quiz-kicker">MIXED REVIEW</p>
+          <h1 id="quiz-title">Practice arena</h1>
+          <div class="progress-wrap"><div class="progress-label"><span id="question-count">Question 1 of 8</span><span id="live-score">0 pts</span></div><div class="progress"><span id="progress-fill"></span></div></div>
+        </div>
+        <article class="question-panel">
+          <div class="question-type" id="question-type">MULTIPLE CHOICE</div>
+          <h2 id="question-text"></h2>
+          <div id="question-context" class="question-context" hidden></div>
+          <div id="answer-area"></div>
+          <div id="feedback" class="feedback" aria-live="polite"></div>
+          <div class="question-actions"><button class="button button-primary" id="submit-answer">Check answer</button><button class="button button-quiet" id="next-question" hidden>Next question <span>→</span></button></div>
+        </article>
+        <section id="results-card" class="results-card" hidden></section>
+      </section>
+
+      <section id="exam" class="view">
+        <div id="exam-intro" class="exam-intro">
+          <p class="eyebrow">AHMED AKRAM'S COMPREHENSIVE MOCK</p>
+          <div class="exam-intro-grid">
+            <div>
+              <h1>The full <em>midterm simulation.</em></h1>
+              <p>40 questions across every topic you uploaded - including final-answer conversions, MCQ, True/False, and C++ code-writing tasks.</p>
+              <div class="exam-stat-row"><span><b>40</b> questions</span><span><b>60</b> minutes</span><span><b>4</b> code tasks</span></div>
+              <button id="begin-exam" class="button button-primary">Begin the 60-minute exam <span>→</span></button>
+            </div>
+            <aside class="exam-rules"><p>EXAM RULES</p><ol><li>The timer starts only when you begin.</li><li>Answers are saved during this browser session.</li><li>Code answers receive local structural feedback after submission.</li><li>Submit before the timer reaches 00:00.</li></ol></aside>
+          </div>
+        </div>
+        <div id="exam-run" class="exam-run" hidden>
+          <div class="exam-bar"><button class="back-button" id="leave-exam">← Leave exam</button><div class="exam-status"><span>COMPREHENSIVE EXAM</span><strong id="exam-timer">60:00</strong></div><span id="exam-progress-text">Question 1 / 40</span></div>
+          <article class="question-panel exam-question-panel">
+            <div class="question-type" id="exam-question-type"></div>
+            <h2 id="exam-question-text"></h2>
+            <div id="exam-question-context" class="question-context" hidden></div>
+            <div id="exam-answer-area"></div>
+            <div id="exam-feedback" class="feedback"></div>
+            <div class="question-actions"><button class="button button-primary" id="exam-check-answer">Save & check</button><button class="button button-quiet" id="exam-next-question">Next <span>→</span></button></div>
+          </article>
+          <div class="exam-map-wrap"><p>QUESTION MAP</p><div id="exam-map" class="exam-map"></div><button id="submit-exam" class="button button-exam">Submit exam</button></div>
+        </div>
+        <section id="exam-results" class="results-card" hidden></section>
+      </section>
+
+      <section id="code" class="view">
+        <div class="lab-header">
+          <div><p class="eyebrow">C++ PRACTICE ENVIRONMENT</p><h1>Code Lab <span>β</span></h1></div>
+          <p>Write a solution, then get targeted structural feedback and a character-level comparison when needed.</p>
+        </div>
+        <div class="lab-layout">
+          <aside class="challenge-list" aria-label="Code challenges">
+            <p class="list-label">CHALLENGES</p>
+            <button class="challenge-choice selected" data-challenge="evenOdd"><span>01</span><div><strong>Even or Odd</strong><small>if / else · modulus</small></div></button>
+            <button class="challenge-choice" data-challenge="calculator"><span>02</span><div><strong>Simple Calculator</strong><small>switch · division guard</small></div></button>
+            <button class="challenge-choice" data-challenge="fixSyntax"><span>03</span><div><strong>Fix the Syntax</strong><small>debugging</small></div></button>
+          </aside>
+          <section class="editor-card">
+            <div class="challenge-brief"><span id="challenge-tag">CONDITIONS</span><h2 id="challenge-title"></h2><p id="challenge-description"></p><div id="challenge-checks" class="check-pills"></div></div>
+            <div class="editor-toolbar"><span><i></i><i></i><i></i> <b>solution.cpp</b></span><span class="language-chip">C++</span></div>
+            <div class="editor-wrap"><div id="line-numbers" aria-hidden="true">1</div><pre id="code-highlight" aria-hidden="true"><code></code></pre><textarea id="code-input" spellcheck="false" aria-label="C++ code editor" placeholder="// Start from scratch…\n// #include &lt;iostream&gt;"></textarea></div>
+            <div class="code-actions"><button class="button button-primary" id="review-code">Review my code <span>⌘</span></button><button class="button button-quiet" id="reset-code">Reset</button><span class="safe-note">Local structural review · no code is executed</span></div>
+            <div id="code-feedback" class="code-feedback" hidden></div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <footer>Built by Ahmed Akram for focused review · Computer Techniques</footer>
+    <script src="app.js"></script>
+  </body>
+</html>
